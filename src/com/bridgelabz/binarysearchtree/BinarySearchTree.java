@@ -18,7 +18,7 @@ public class BinarySearchTree {
 		}else if(data > root.data) {
 			root.right = insertElement(root.right , data);
 		}
-			return root;
+		return root;
 	}
 	
 	public void inOrder(Node node) {
@@ -53,5 +53,22 @@ public class BinarySearchTree {
 			return 0;
 		}else
 			return(size(node.left) + 1 + size(node.right));
+	}
+	
+	public void search(Node root ,int data) {
+		if(searchAll(root, data)) 
+			System.out.println("Found: 63");
+		else
+			System.out.println("Didn't find data");		
+	}
+	
+	public boolean searchAll(Node root, int data) {
+		
+		if (root == null)
+			return false;
+		if(root.data == data) 
+			return true;
+		else		
+			return searchAll(root.left, data) || searchAll(root.right, data);
 	}
 }
